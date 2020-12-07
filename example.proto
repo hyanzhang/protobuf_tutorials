@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package example;//package name for avoiding name conflict
+
+message Person{
+    string name =1;//encoding suquence length
+    float height = 2;//encoding fixed length
+    int32 age = 3;////encoding varint length
+    
+    repeated PhoneNumber phones = 5;//"repeated" indicate that the "Person" message consists of repeated (none or more) "PhoneNumber" message 
+    
+    message PhoneNumber
+    {
+        string number = 1;
+        int32 type = 2;
+    }
+
+}
+message AddressBook
+{
+    repeated Person people = 1;
+}
